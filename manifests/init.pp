@@ -1,11 +1,12 @@
 class chefdk {
   include homebrew
+  include brewcask
 
   homebrew::tap { 'caskroom/cask': }
 
   package { 'brew-cask':
     ensure => present,
-    user => 'root'
+    provider => 'brewcask'
   }
 
   $home = "/Users/${::boxen__user}"
