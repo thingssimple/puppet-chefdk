@@ -1,8 +1,6 @@
 class chefdk {
-  include brewcask
-
-  package { 'chefdk':
-    ensure => present,
-    provider => 'brewcask'
+  exec { 'Install chefdk from cask':
+    command => 'brew cask install chefdk',
+    user => $::boxen_user
   }
 }
