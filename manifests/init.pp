@@ -1,18 +1,8 @@
 class chefdk {
-  include homebrew
+  include brewcask
 
-  homebrew::tap { 'caskroom/cask': }
-
-  package { 'brew-cask':
+  package { 'chefdk':
     ensure => present,
-    user => 'root'
-  }
-
-  $home = "/Users/${::boxen__user}"
-
-  exec { "Install chefdk from cask":
-    command => "brew cask install chefdk",
-    cwd => $home,
-    user => $::boxen_user
+    provider => 'brewcask'
   }
 }
