@@ -4,7 +4,8 @@ class chefdk {
   homebrew::tap { 'caskroom/cask': }
 
   package { 'brew-cask':
-    ensure => present
+    ensure => present,
+    user => 'root'
   }
 
   $home = "/Users/${::boxen__user}"
